@@ -12,8 +12,19 @@ import Eureka
 
 public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
     
-    var view : ViewType?
-    var titleLabel : UILabel?
+    public var view : ViewType?
+    
+    public var viewRightMargin = CGFloat(15.0)
+    public var viewLeftMargin = CGFloat(15.0)
+    public var viewTopMargin = CGFloat(1.0)
+    public var viewBottomMargin = CGFloat(1.0)
+    
+    public var titleLeftMargin = CGFloat(15.0)
+    public var titleRightMargin = CGFloat(5.0)
+    public var titleTopMargin = CGFloat(12.0)
+    public var titleBottomMargin = CGFloat(4.0)
+
+    fileprivate var titleLabel : UILabel?
     
     private var notificationObserver : NSObjectProtocol?
 
@@ -54,15 +65,6 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
     open override func didSelect() {
     }
     
-    var viewRightMargin = CGFloat(15.0)
-    var viewLeftMargin = CGFloat(15.0)
-    var viewTopMargin = CGFloat(1.0)
-    var viewBottomMargin = CGFloat(1.0)
-    
-    var titleLeftMargin = CGFloat(15.0)
-    var titleRightMargin = CGFloat(5.0)
-    var titleTopMargin = CGFloat(12.0)
-    var titleBottomMargin = CGFloat(4.0)
 
     open override func layoutSubviews() {
         super.layoutSubviews()
@@ -110,7 +112,7 @@ open class _ViewRow<ViewType : UIView>: Row<ViewCell<ViewType> > {
 
 public final class ViewRow<ViewType : UIView>: _ViewRow<ViewType>, RowType {
 
-    var view: ViewType? { // provide a convience accessor for the view
+    public var view: ViewType? { // provide a convience accessor for the view
         return cell.view
     }
     
