@@ -1,0 +1,15 @@
+PODS:
+  - Eureka (3.1.0)
+  - SwiftChart (0.5.0)
+
+DEPENDENCIES:
+  - Eureka
+  - SwiftChart
+
+SPEC CHECKSUMS:
+  Eureka: d6725c38d0dcdceaa331d1468f75e76315715ae0
+  SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
+
+PODFILE CHECKSUM: 98460ca34f427b51cd8abe922e5fc35a97a6c816
+
+COCOAPODS: 1.3.1
