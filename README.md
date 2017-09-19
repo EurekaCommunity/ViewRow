@@ -111,7 +111,7 @@ If the value of the row's `title` property is nil or blank, the title portion of
 
 ## To-Dos
 
-Currently, ViewRow supportd auto-layout within a view but does not allow auto-layout constraints to effect the height of the row.  This is an improvement I would like to add in the future.
+Currently, ViewRow supports auto-layout within a view but does not allow auto-layout constraints to effect the height of the row.  This is an improvement I would like to add in the future.
 
 
 ## Author
