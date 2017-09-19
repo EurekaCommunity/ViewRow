@@ -2,7 +2,7 @@ By [Mark Alldritt](http://markalldritt.com).
 
 ## Introduction
 
-ViewRow is a [Eureka](https://github.com/xmartlabs/Eureka) row that allows you to display any UIView (or UIView sunclass) within a Eureka row.  Views can be created in code or loaded from nib files.
+ViewRow is a [Eureka](https://github.com/xmartlabs/Eureka) row that allows you to display any UIView (or UIView sunclass) within a Eureka row.  Views can be created in code or loaded from nib files.  ViewRow handles all interactions with Eureka allowing you to focus on developing your UIView subclass or Nib file.
 
 ![Demo](Screenshots/ViewRow.gif)
 
@@ -67,6 +67,8 @@ class ViewController: FormViewController {
 }
 ```
 
+The ViewRow example application (used to generate the movie shown above) illustrates the various ways in which ViewRow can be used to host various types of UIView within a Eureka form.
+
 
 ## Requirements
 
@@ -82,7 +84,7 @@ class ViewController: FormViewController {
 
 Before contribute check the [CONTRIBUTING](https://github.com/EurekaCommunity/ImageRow/blob/master/CONTRIBUTING.md) file for more info.
 
-If you use **ViewRow** in your app I would love to hear about it! Drop me a line on [twitter](https://twitter.com/alldritt).
+If you use **ViewRow** in your app I would love to hear about it! Drop me a line at [alldritt@latenightsw.com](email:alldritt@latenightsw.com).
 
 
 ## Installation
@@ -106,6 +108,11 @@ The following properties control the placement of the title and view within the 
   `titleBottomMargin`  
 
 If the value of the row's `title` property is nil or blank, the title portion of the view is hidden.
+
+## To-Dos
+
+Currently, ViewRow supportd auto-layout within a view but does not allow auto-layout constraints to effect the height of the row.  This is an improvement I would like to add in the future.
+
 
 ## Author
 
