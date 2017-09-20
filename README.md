@@ -107,7 +107,7 @@ The following properties control the placement of the title and view within the 
   `titleTopMargin`  
   `titleBottomMargin`  
 
-If the value of the row's `title` property is nil or blank, the title portion of the view is hidden.
+If the value of the row's `title` property is nil or blank, the title portion of the row is hidden.
 
 ## To-Dos
 
