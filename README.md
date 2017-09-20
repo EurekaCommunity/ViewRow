@@ -121,3 +121,9 @@ Currently, ViewRow supports auto-layout within a view but does not allow auto-la
 ## FAQ
 
 nothing yet
+
+## Other Rows
+
+See my other contributions to the Eureka Community:
+
+- [ColorPickerRow](https://github.com/EurekaCommunity/ColorPickerRow)
