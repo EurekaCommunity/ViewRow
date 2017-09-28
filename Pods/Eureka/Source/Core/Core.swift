@@ -110,18 +110,6 @@ public enum ControllerProvider<VCType: UIViewController> {
 }
 
 /**
- *  Responsible for the options passed to a selector view controller
- */
-public struct DataProvider<T: Equatable> {
-
-    public let arrayData: [T]?
-
-    public init(arrayData: [T]) {
-        self.arrayData = arrayData
-    }
-}
-
-/**
  Defines how a controller should be presented.
  
  - Show?:           Shows the controller with `showViewController(...)`.
@@ -325,8 +313,8 @@ public enum EurekaError: Error {
 public protocol FormViewControllerProtocol {
     var tableView: UITableView! { get }
 
-    func beginEditing<T: Equatable>(of: Cell<T>)
-    func endEditing<T: Equatable>(of: Cell<T>)
+    func beginEditing<T>(of: Cell<T>)
+    func endEditing<T>(of: Cell<T>)
 
     func insertAnimation(forRows rows: [BaseRow]) -> UITableViewRowAnimation
     func deleteAnimation(forRows rows: [BaseRow]) -> UITableViewRowAnimation
@@ -551,7 +539,7 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
     /**
     Called when a cell becomes first responder
     */
-    public final func beginEditing<T: Equatable>(of cell: Cell<T>) {
+    public final func beginEditing<T>(of cell: Cell<T>) {
         cell.row.isHighlighted = true
         cell.row.updateCell()
         RowDefaults.onCellHighlightChanged["\(type(of: cell.row!))"]?(cell, cell.row)
@@ -569,7 +557,7 @@ open class FormViewController: UIViewController, FormViewControllerProtocol, For
     /**
      Called when a cell resigns first responder
      */
-    public final func endEditing<T: Equatable>(of cell: Cell<T>) {
+    public final func endEditing<T>(of cell: Cell<T>) {
         cell.row.isHighlighted = false
         cell.row.wasBlurred = true
         RowDefaults.onCellHighlightChanged["\(type(of: self))"]?(cell, cell.row)
@@ -956,7 +944,7 @@ extension FormViewController {
     /**
      Called when the keyboard will appear. Adjusts insets of the tableView and scrolls it if necessary.
      */
-    open func keyboardWillShow(_ notification: Notification) {
+    @objc open func keyboardWillShow(_ notification: Notification) {
         guard let table = tableView, let cell = table.findFirstResponder()?.formCell() else { return }
         let keyBoardInfo = notification.userInfo!
         let endFrame = keyBoardInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
@@ -984,7 +972,7 @@ extension FormViewController {
     /**
      Called when the keyboard will disappear. Adjusts insets of the tableView.
      */
-    open func keyboardWillHide(_ notification: Notification) {
+    @objc open func keyboardWillHide(_ notification: Notification) {
         guard let table = tableView, let oldBottom = oldBottomInset else { return }
         let keyBoardInfo = notification.userInfo!
         var tableInsets = table.contentInset
@@ -1007,11 +995,11 @@ extension FormViewController {
 
     // MARK: Navigation Methods
 
-    func navigationDone(_ sender: UIBarButtonItem) {
+    @objc func navigationDone(_ sender: UIBarButtonItem) {
         tableView?.endEditing(true)
     }
 
-    func navigationAction(_ sender: UIBarButtonItem) {
+    @objc func navigationAction(_ sender: UIBarButtonItem) {
         navigateTo(direction: sender == navigationAccessoryView.previousButton ? .up : .down)
     }
 
