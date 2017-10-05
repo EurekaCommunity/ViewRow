@@ -19,6 +19,7 @@ class ViewController: FormViewController {
         super.viewDidLoad()
 
         form
+            
             +++ Section("Settings")
             
                 <<< SliderRow("height") { (row) in
@@ -41,6 +42,8 @@ class ViewController: FormViewController {
                     }
                 }
 
+            
+            
             +++ Section("Custom View from Nib")
             
                 <<< LabelRow() { (row) in
@@ -68,6 +71,8 @@ class ViewController: FormViewController {
                     row.value = "Hello Again"
                 }
             
+            
+            
             +++ Section("Custom View from code")
             
                 <<< LabelRow() { (row) in
@@ -92,6 +97,8 @@ class ViewController: FormViewController {
                     row.value = "Hello Again"
                 }
 
+            
+            
             +++ Section("Custom View with title")
             
                 <<< LabelRow() { (row) in
@@ -117,15 +124,16 @@ class ViewController: FormViewController {
                     row.value = "Hello Again"
                 }
 
-            +++ Section("Custom View without margins")
+            
+            
+            +++ Section("Custom View without title or margins")
             
                 <<< LabelRow() { (row) in
                     row.title = "A Row"
                     row.value = "Hello World"
                 }
                 
-                <<< ViewRow<UIView>() { (row) in
-                }
+                <<< ViewRow<UIView>()
                 .cellSetup { (cell, row) in
                     //  Construct the view - in this instance the a rudimentry view created here
                     cell.view = UIView()
@@ -147,6 +155,71 @@ class ViewController: FormViewController {
                     row.value = "Hello Again"
                 }
 
+            
+            +++ Section("Image View with title")
+            
+                <<< LabelRow() { (row) in
+                    row.title = "A Row"
+                    row.value = "Hello World"
+                }
+            
+                <<< ViewRow<UIImageView>() { (row) in
+                    row.title = "Title For Image View Row"
+                }
+                .cellSetup { (cell, row) in
+                    //  Construct the view for the cell
+                    cell.view = UIImageView()
+                    cell.contentView.addSubview(cell.view!)
+                    
+                    //  Get something to display
+                    let image = UIImage(named: "trees")
+                    cell.view!.image = image
+                    
+                    //  Define the cell's height
+                    cell.height = { return CGFloat(300) }
+                }
+            
+                <<< LabelRow() { (row) in
+                    row.title = "Another Row"
+                    row.value = "Hello Again"
+                }
+            
+            
+            
+            +++ Section("Image View without title or margins")
+            
+                <<< LabelRow() { (row) in
+                    row.title = "A Row"
+                    row.value = "Hello World"
+                }
+            
+                <<< ViewRow<UIImageView>()
+                .cellSetup { (cell, row) in
+                    //  Construct the view for the cell
+                    cell.view = UIImageView()
+                    cell.contentView.addSubview(cell.view!)
+                    
+                    //  Get something to display
+                    let image = UIImage(named: "trees")
+                    cell.view!.image = image
+                    
+                    //  Make the image view occupy the entire row:
+                    cell.viewRightMargin = 0.0
+                    cell.viewLeftMargin = 0.0
+                    cell.viewTopMargin = 0.0
+                    cell.viewBottomMargin = 0.0
+                    
+                    //  Define the cell's height
+                    cell.height = { return CGFloat(300) }
+                }
+            
+                <<< LabelRow() { (row) in
+                    row.title = "Another Row"
+                    row.value = "Hello Again"
+                }
+
+            
+            
             +++ Section("Graph View from code")
             
                 <<< ViewRow<Chart>("graph") { (row) in
@@ -188,7 +261,6 @@ class ViewController: FormViewController {
                     cell.view!.add(series)
                 }
     }
-
 }
 
 
