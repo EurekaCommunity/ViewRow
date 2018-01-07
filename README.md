@@ -122,6 +122,10 @@ Currently, ViewRow supports auto-layout within a view but does not allow auto-la
 
 nothing yet
 
+## See Also
+
+[Fluid Slider Demo](https://github.com/alldritt/EurekaFluidSlider) 
+
 ## Other Rows
 
 See my other contributions to the Eureka Community:
