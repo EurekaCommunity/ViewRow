@@ -25,12 +25,9 @@ class ViewController: FormViewController {
                 }
                 .cellSetup { (cell, row) in
                     //  Construct the view for the cell
-                    cell.view = MyView()
+                    cell.view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
                     cell.view?.backgroundColor = UIColor.orange
                     cell.contentView.addSubview(cell.view!)
-                    
-                    //  Define the cell's height
-                    cell.height = { return CGFloat(200) }
                 }
     }
 }
@@ -59,9 +56,6 @@ class ViewController: FormViewController {
                     cell.view = nib.instantiate(withOwner: self, options: nil)[0] as? MyView
                     cell.view?.backgroundColor = cell.backgroundColor
                     cell.contentView.addSubview(cell.view!)
-                                        
-                    //  Define the cell's height
-                    cell.height = { return CGFloat(200) }
                 }
     }
 }
