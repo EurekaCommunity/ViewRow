@@ -27,7 +27,6 @@ class ViewController: FormViewController {
                     //  Construct the view for the cell
                     cell.view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
                     cell.view?.backgroundColor = UIColor.orange
-                    cell.contentView.addSubview(cell.view!)
                 }
     }
 }
@@ -55,7 +54,6 @@ class ViewController: FormViewController {
                     
                     cell.view = nib.instantiate(withOwner: self, options: nil)[0] as? MyView
                     cell.view?.backgroundColor = cell.backgroundColor
-                    cell.contentView.addSubview(cell.view!)
                 }
     }
 }
