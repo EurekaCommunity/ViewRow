@@ -51,6 +51,16 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         contentView.addSubview(titleLabel!)
         
+        //  Provide a default row height calculation based on the height of the assigned view.
+        height = {
+            if self.titleLabel!.text == nil || self.titleLabel!.text == "" {
+                return self.view?.frame.height ?? 0 + self.viewLeftMargin + self.viewTopMargin
+            }
+            else {
+                return self.titleLabel!.frame.height + self.titleTopMargin + self.titleBottomMargin + (self.view?.frame.height ?? 0.0) + self.viewLeftMargin + self.viewTopMargin
+            }
+        }
+        
         notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange,
                                                                       object: nil,
                                                                       queue: nil,

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9ECB773C28C6635E55919A1B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C5F470DB5DB26F85E98A64 /* Pods_Example.framework */; };
 		A55B94081F86A2890061E9FB /* trees.png in Resources */ = {isa = PBXBuildFile; fileRef = A55B94071F86A2850061E9FB /* trees.png */; };
+		A55B940D1F86A3A40061E9FB /* GraphViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B94091F86A3A30061E9FB /* GraphViewViewController.swift */; };
+		A55B940E1F86A3A40061E9FB /* ImageViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */; };
+		A55B940F1F86A3A40061E9FB /* CustomViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B940B1F86A3A40061E9FB /* CustomViewViewController.swift */; };
+		A55B94101F86A3A40061E9FB /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B940C1F86A3A40061E9FB /* ViewViewController.swift */; };
 		A56DA43D1F70380A00D2B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DA43C1F70380A00D2B575 /* AppDelegate.swift */; };
 		A56DA43F1F70380A00D2B575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DA43E1F70380A00D2B575 /* ViewController.swift */; };
 		A56DA4421F70380A00D2B575 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A56DA4401F70380A00D2B575 /* Main.storyboard */; };
@@ -25,6 +29,10 @@
 		62039DBC805EDC23EF95AC6F /* Pods-CustomViewRow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomViewRow.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomViewRow/Pods-CustomViewRow.release.xcconfig"; sourceTree = "<group>"; };
 		94C5F470DB5DB26F85E98A64 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55B94071F86A2850061E9FB /* trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trees.png; sourceTree = "<group>"; };
+		A55B94091F86A3A30061E9FB /* GraphViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewViewController.swift; sourceTree = "<group>"; };
+		A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewViewController.swift; sourceTree = "<group>"; };
+		A55B940B1F86A3A40061E9FB /* CustomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewViewController.swift; sourceTree = "<group>"; };
+		A55B940C1F86A3A40061E9FB /* ViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
 		A56DA4391F70380A00D2B575 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56DA43C1F70380A00D2B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A56DA43E1F70380A00D2B575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +101,12 @@
 			children = (
 				A56DA43C1F70380A00D2B575 /* AppDelegate.swift */,
 				A56DA43E1F70380A00D2B575 /* ViewController.swift */,
+				A55B940B1F86A3A40061E9FB /* CustomViewViewController.swift */,
 				A56DA4501F70395D00D2B575 /* ResultView.swift */,
 				A56DA4511F70395D00D2B575 /* ResultView.xib */,
+				A55B940C1F86A3A40061E9FB /* ViewViewController.swift */,
+				A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */,
+				A55B94091F86A3A30061E9FB /* GraphViewViewController.swift */,
 				A56DA4401F70380A00D2B575 /* Main.storyboard */,
 				A56DA4431F70380A00D2B575 /* Assets.xcassets */,
 				A56DA4451F70380A00D2B575 /* LaunchScreen.storyboard */,
@@ -248,8 +260,12 @@
 			files = (
 				A56DA43F1F70380A00D2B575 /* ViewController.swift in Sources */,
 				A56DA4521F70395D00D2B575 /* ResultView.swift in Sources */,
+				A55B940D1F86A3A40061E9FB /* GraphViewViewController.swift in Sources */,
 				A5F3AD1C1F707E44008402B4 /* ViewRow.swift in Sources */,
 				A56DA43D1F70380A00D2B575 /* AppDelegate.swift in Sources */,
+				A55B94101F86A3A40061E9FB /* ViewViewController.swift in Sources */,
+				A55B940E1F86A3A40061E9FB /* ImageViewViewController.swift in Sources */,
+				A55B940F1F86A3A40061E9FB /* CustomViewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

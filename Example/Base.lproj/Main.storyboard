@@ -1,19 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6Cq-Lu-EXe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ViewRow Examples-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomViewRow" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="ViewRow Examples" id="5yx-Al-nKh"/>
+                    <connections>
+                        <segue destination="AuP-Zd-PjE" kind="show" identifier="UIView" id="Ai3-FD-hfP"/>
+                        <segue destination="eAG-HX-NJb" kind="show" identifier="CustomView" id="dNI-RE-PYb"/>
+                        <segue destination="Lc4-5y-Cir" kind="show" identifier="UIImageView" id="v6z-f2-M6j"/>
+                        <segue destination="BgQ-Q8-w2f" kind="show" identifier="GraphView" id="opz-8o-9PX"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="521" y="663"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9j3-VT-Wp3">
+            <objects>
+                <navigationController id="6Cq-Lu-EXe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JW4-1B-4dl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Fmp-4X-XhO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4rG-3T-KF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="664"/>
+        </scene>
+        <!--UIView Examples-->
+        <scene sceneID="qdS-sW-MDt">
+            <objects>
+                <viewController id="AuP-Zd-PjE" customClass="ViewViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="UIView Examples" id="9gm-sa-11F"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hkB-30-pke" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="286"/>
+        </scene>
+        <!--Custom View Examples-->
+        <scene sceneID="QDk-v9-kQ0">
+            <objects>
+                <viewController id="eAG-HX-NJb" customClass="CustomViewViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Custom View Examples" id="H2c-Ub-fhQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yc4-a2-EIG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="636"/>
+        </scene>
+        <!--UIImageView Examples-->
+        <scene sceneID="40k-cc-1rK">
+            <objects>
+                <viewController title="UIImageView Examples" id="Lc4-5y-Cir" customClass="ImageViewViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fZL-Aj-Ye4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Way-qY-RWb" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1449" y="1106"/>
+        </scene>
+        <!--GraphView Example-->
+        <scene sceneID="it6-P8-uQR">
+            <objects>
+                <viewController id="BgQ-Q8-w2f" customClass="GraphViewViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="GraphView Example" id="FQV-gw-9no"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWV-Ph-juw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="1458"/>
         </scene>
     </scenes>
 </document>
