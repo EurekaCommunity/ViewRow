@@ -59,8 +59,7 @@ class CustomViewViewController: FormViewController {
                     let nib = UINib(nibName: "ResultView", bundle: bundle)
                     
                     cell.view = nib.instantiate(withOwner: self, options: nil)[0] as? ResultView
-                    cell.view?.backgroundColor = cell.backgroundColor
-                    cell.contentView.addSubview(cell.view!)
+                    cell.view!.backgroundColor = cell.backgroundColor
                     
                     //  Define the cell's height - in this example I use the value of the height slider.
                     cell.height = { return CGFloat((self.form.rowBy(tag: "height") as? SliderRow)?.value ?? self.initialHeight) /*return CGFloat(self.initialHeight)*/ }

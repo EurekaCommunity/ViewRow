@@ -111,6 +111,13 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
 open class _ViewRow<ViewType : UIView>: Row<ViewCell<ViewType> > {
     
     override open func updateCell() {
+        //  Deal with the case where the caller did not add their custom view to the containerView in a
+        //  backwards compatible manner.
+        if let view = cell.view,
+            view.superview != cell.contentView {
+            view.removeFromSuperview()
+            cell.contentView.addSubview(view)
+        }
         cell.titleLabel?.text = title
     }
     

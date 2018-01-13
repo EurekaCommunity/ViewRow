@@ -31,8 +31,7 @@ class ViewViewController: FormViewController {
                 .cellSetup { (cell, row) in
                     //  Construct the view - in this instance the a rudimentry view created here
                     cell.view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-                    cell.view?.backgroundColor = UIColor.orange
-                    cell.contentView.addSubview(cell.view!)
+                    cell.view!.backgroundColor = UIColor.orange
                 }
             
                 <<< LabelRow() { (row) in
@@ -53,8 +52,7 @@ class ViewViewController: FormViewController {
                 .cellSetup { (cell, row) in
                     //  Construct the view - in this instance the a rudimentry view created here
                     cell.view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-                    cell.view?.backgroundColor = UIColor.green
-                    cell.contentView.addSubview(cell.view!)
+                    cell.view!.backgroundColor = UIColor.green
                 }
                 
                 <<< LabelRow() { (row) in
@@ -75,8 +73,7 @@ class ViewViewController: FormViewController {
                 .cellSetup { (cell, row) in
                     //  Construct the view - in this instance the a rudimentry view created here
                     cell.view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 200))
-                    cell.view?.backgroundColor = UIColor.blue
-                    cell.contentView.addSubview(cell.view!)
+                    cell.view!.backgroundColor = UIColor.blue
                     
                     //  Adjust the cell margins to suit
                     cell.viewTopMargin = 0.0

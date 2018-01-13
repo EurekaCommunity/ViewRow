@@ -32,7 +32,6 @@ class GraphViewViewController: FormViewController {
                 }
                 .cellSetup { (cell, row) in
                     cell.view = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: UIDevice.current.userInterfaceIdiom == .pad ? 300 : 210))
-                    cell.contentView.addSubview(cell.view!)
                     
                     cell.viewLeftMargin = 5.0
                     cell.viewRightMargin = 5.0

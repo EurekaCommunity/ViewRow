@@ -33,7 +33,6 @@ class ImageViewViewController: FormViewController {
                 .cellSetup { (cell, row) in
                     //  Construct the view for the cell
                     cell.view = UIImageView(frame:CGRect(x: 0, y: 0, width: 100, height: 300))
-                    cell.contentView.addSubview(cell.view!)
                     
                     //  Get something to display
                     let image = UIImage(named: "trees")
