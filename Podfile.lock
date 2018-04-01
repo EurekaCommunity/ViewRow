@@ -1,15 +1,15 @@
 PODS:
-  - Eureka (4.0.0)
-  - SwiftChart (0.5.0)
+  - Eureka (4.1.1)
+  - SwiftChart (1.0.1)
 
 DEPENDENCIES:
   - Eureka (>= 4.0.0)
   - SwiftChart
 
 SPEC CHECKSUMS:
-  Eureka: c0b55d2aec82050c1400c7d65960b700be8d10ef
-  SwiftChart: d1d22d2b1c4582f4d561edf97a210059c00ee256
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
 
 PODFILE CHECKSUM: f37e55d4877fb960861db8ab8ff58a6c92efc5f9
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

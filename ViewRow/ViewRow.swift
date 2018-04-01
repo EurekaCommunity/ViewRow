@@ -24,7 +24,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
     public var titleTopMargin = CGFloat(12.0)
     public var titleBottomMargin = CGFloat(4.0)
 
-    fileprivate var titleLabel : UILabel?
+    public var titleLabel : UILabel?
     
     private var notificationObserver : NSObjectProtocol?
 
@@ -54,10 +54,12 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
         //  Provide a default row height calculation based on the height of the assigned view.
         height = {
             if self.titleLabel!.text == nil || self.titleLabel!.text == "" {
-                return self.view?.frame.height ?? 0 + self.viewLeftMargin + self.viewTopMargin
+                return ceil(self.view?.frame.height ?? 0 + self.viewTopMargin + self.viewBottomMargin)
             }
             else {
-                return self.titleLabel!.frame.height + self.titleTopMargin + self.titleBottomMargin + (self.view?.frame.height ?? 0.0) + self.viewLeftMargin + self.viewTopMargin
+                let titleHeight = ceil(self.titleLabel!.sizeThatFits(CGSize(width: self.contentView.frame.width - self.titleLeftMargin - self.titleRightMargin, height: 9999.0)).height)
+
+                return ceil(titleHeight + self.titleTopMargin + self.titleBottomMargin + (self.view?.frame.height ?? 0.0) + self.viewTopMargin + self.viewBottomMargin)
             }
         }
         
@@ -90,18 +92,19 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
                                  height: contentFrame.height - viewTopMargin - viewBottomMargin)
         }
         else {
-            let titleSize = titleLabel!.sizeThatFits(CGSize(width: contentFrame.width - titleLeftMargin - titleRightMargin, height: 9999.0))
+            let titleHeight = ceil(titleLabel!.sizeThatFits(CGSize(width: contentFrame.width - titleLeftMargin - titleRightMargin, height: 9999.0)).height)
+            let titleFrame = CGRect(x: titleLeftMargin,
+                                    y: titleTopMargin,
+                                    width: contentFrame.width - titleLeftMargin - titleRightMargin,
+                                    height: titleHeight)
+            let viewFrame = CGRect(x: viewLeftMargin,
+                                   y: titleFrame.maxY + titleBottomMargin + viewTopMargin,
+                                   width: contentFrame.width - viewLeftMargin - viewRightMargin,
+                                   height: ceil(contentFrame.height - titleFrame.maxY - titleBottomMargin - viewTopMargin - viewBottomMargin))
             
-            titleLabel!.frame = CGRect(x: titleLeftMargin,
-                                       y: titleTopMargin,
-                                       width: contentFrame.width - titleLeftMargin - titleRightMargin,
-                                       height: titleSize.height)
-            view?.frame = CGRect(x: viewLeftMargin,
-                                 y: titleLabel!.frame.maxY + titleBottomMargin + viewTopMargin,
-                                 width: contentFrame.width - viewLeftMargin - viewRightMargin,
-                                 height: contentFrame.height - titleLabel!.frame.maxY - viewTopMargin - titleBottomMargin - viewBottomMargin)
+            titleLabel!.frame = titleFrame
+            view?.frame = viewFrame
         }
-        
     }
     
 }
@@ -111,9 +114,10 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
 open class _ViewRow<ViewType : UIView>: Row<ViewCell<ViewType> > {
     
     override open func updateCell() {
+        //  NOTE: super.updateCell() deliberatly not called.
+        
         //  Deal with the case where the caller did not add their custom view to the containerView in a
         //  backwards compatible manner.
-        super.updateCell()
         if let view = cell.view,
             view.superview != cell.contentView {
             view.removeFromSuperview()
