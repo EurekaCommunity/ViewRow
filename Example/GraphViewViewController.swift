@@ -28,7 +28,7 @@ class GraphViewViewController: FormViewController {
                 }
 
                 <<< ViewRow<Chart>("graph") { (row) in
-                    row.title = "GraphView"
+                    row.title = "GraphViewx"
                 }
                 .cellSetup { (cell, row) in
                     cell.view = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: UIDevice.current.userInterfaceIdiom == .pad ? 300 : 210))
@@ -38,26 +38,26 @@ class GraphViewViewController: FormViewController {
                     
                     let sampleCount = data.count
                     let msPerSample = 3.90625
-                    let intervalSamples = 200.0 /* ms */ / Float(msPerSample)
+                    let intervalSamples = 200.0 /* ms */ / Double(msPerSample)
                     let baseLine = 51
-                    let series = ChartSeries(data.flatMap({ (v) in return Float(v) }))
+                    let series = ChartSeries(data.flatMap({ (v) in return Double(v) }))
                     let min = floor(data.min()!)
                     let max = ceil(data.max()!)
                     
-                    var xLabelValues : [Float] = []
+                    var xLabelValues : [Double] = []
                     
-                    for i in 0...Int(Float(sampleCount) / intervalSamples) {
-                        xLabelValues.append(Float(Int(Float(i) * intervalSamples)))
+                    for i in 0...Int(Double(sampleCount) / intervalSamples) {
+                        xLabelValues.append(Double(Int(Double(i) * intervalSamples)))
                     }
                     
                     cell.view!.xLabels = xLabelValues
                     cell.view!.xLabelsFormatter = {
-                        let fMsPerSample = Float(msPerSample)
-                        let fBaseLine = Float(baseLine)
+                        let fMsPerSample = Double(msPerSample)
+                        let fBaseLine = Double(baseLine)
                         
                         return "\(Int($1 * fMsPerSample - fBaseLine * fMsPerSample + ($1 < fBaseLine ? -9.9 : 9.9)) / 10 * 10)ms"
                     }
-                    cell.view!.yLabels = [Float(min), Float(max)]
+                    cell.view!.yLabels = [min, max]
                     cell.view!.yLabelsFormatter = { return "\(Int($1))µv" }
                     
                     series.area = true
