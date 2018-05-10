@@ -33,7 +33,9 @@ class ImageViewViewController: FormViewController {
                 .cellSetup { (cell, row) in
                     //  Construct the view for the cell
                     cell.view = UIImageView(frame:CGRect(x: 0, y: 0, width: 100, height: 300))
-                    
+                    cell.view!.contentMode = .scaleAspectFill
+                    cell.view!.clipsToBounds = true
+
                     //  Get something to display
                     let image = UIImage(named: "trees")
                     cell.view!.image = image
@@ -56,7 +58,51 @@ class ImageViewViewController: FormViewController {
                 <<< ViewRow<UIImageView>()
                 .cellSetup { (cell, row) in
                     //  Construct the view for the cell
-                    cell.view = UIImageView()
+                    cell.view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 300))
+                    cell.view!.contentMode = .scaleAspectFill
+                    cell.view!.clipsToBounds = true
+
+                    //  Get something to display
+                    let image = UIImage(named: "trees")
+                    cell.view!.image = image
+                    
+                    //  Make the image view occupy the entire row:
+                    cell.viewRightMargin = 0.0
+                    cell.viewLeftMargin = 0.0
+                    cell.viewTopMargin = 0.0
+                    cell.viewBottomMargin = 0.0
+                }
+            
+                <<< LabelRow() { (row) in
+                    row.title = "Another Row"
+                    row.value = "Hello Again"
+                }
+
+            +++ Section("Image View with changable image")
+            
+                <<< SegmentedRow<String> { (row) in
+                    row.title = "Image"
+                    row.options = ["trees", "flower"]
+                    row.value = "trees"
+                }
+                .cellSetup { (cell, row) in
+                    cell.segmentedControl.setContentHuggingPriority(UILayoutPriority(rawValue: 750), for: .horizontal)
+                    cell.segmentedControl.apportionsSegmentWidthsByContent = true
+                }
+                .onChange { [unowned self] (row) in
+                    guard let imageName = row.value else { return }
+                    guard let imageRow = self.form.rowBy(tag: "xxxx") as? ViewRow<UIImageView> else { return }
+                    
+                    let image = UIImage(named: imageName)
+                    imageRow.cell.view!.image = image
+                }
+
+                <<< ViewRow<UIImageView>("xxxx")
+                .cellSetup { (cell, row) in
+                    //  Construct the view for the cell
+                    cell.view = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 300))
+                    cell.view!.contentMode = .scaleAspectFill
+                    cell.view!.clipsToBounds = true
                     
                     //  Get something to display
                     let image = UIImage(named: "trees")
@@ -67,14 +113,6 @@ class ImageViewViewController: FormViewController {
                     cell.viewLeftMargin = 0.0
                     cell.viewTopMargin = 0.0
                     cell.viewBottomMargin = 0.0
-                    
-                    //  Define the cell's height
-                    cell.height = { return CGFloat(300) }
-                }
-            
-                <<< LabelRow() { (row) in
-                    row.title = "Another Row"
-                    row.value = "Hello Again"
                 }
     }
 }

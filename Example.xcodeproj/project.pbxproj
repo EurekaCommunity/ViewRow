@@ -11,6 +11,7 @@
 		10CF4B03205C4FCE00EE92D6 /* ViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F3AD1B1F707E44008402B4 /* ViewRow.swift */; };
 		10CF4B0D205C636A00EE92D6 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10CF4B09205C50B300EE92D6 /* Eureka.framework */; };
 		9ECB773C28C6635E55919A1B /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C5F470DB5DB26F85E98A64 /* Pods_Example.framework */; };
+		A523878E20A4E67E00428DE7 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = A523878D20A4E67E00428DE7 /* flower.png */; };
 		A55B94081F86A2890061E9FB /* trees.png in Resources */ = {isa = PBXBuildFile; fileRef = A55B94071F86A2850061E9FB /* trees.png */; };
 		A55B940D1F86A3A40061E9FB /* GraphViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B94091F86A3A30061E9FB /* GraphViewViewController.swift */; };
 		A55B940E1F86A3A40061E9FB /* ImageViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */; };
@@ -38,6 +39,7 @@
 		531DD29652A125059B1FA9B1 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		62039DBC805EDC23EF95AC6F /* Pods-CustomViewRow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomViewRow.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomViewRow/Pods-CustomViewRow.release.xcconfig"; sourceTree = "<group>"; };
 		94C5F470DB5DB26F85E98A64 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A523878D20A4E67E00428DE7 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		A55B94071F86A2850061E9FB /* trees.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trees.png; sourceTree = "<group>"; };
 		A55B94091F86A3A30061E9FB /* GraphViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewViewController.swift; sourceTree = "<group>"; };
 		A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				A56DA4431F70380A00D2B575 /* Assets.xcassets */,
 				A56DA4451F70380A00D2B575 /* LaunchScreen.storyboard */,
 				A55B94071F86A2850061E9FB /* trees.png */,
+				A523878D20A4E67E00428DE7 /* flower.png */,
 				A56DA4481F70380A00D2B575 /* Info.plist */,
 			);
 			path = Example;
@@ -215,7 +218,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Late Night Software Ltd";
 				TargetAttributes = {
 					10CF4AFA205C4F5700EE92D6 = {
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A523878E20A4E67E00428DE7 /* flower.png in Resources */,
 				A56DA4471F70380A00D2B575 /* LaunchScreen.storyboard in Resources */,
 				A55B94081F86A2890061E9FB /* trees.png in Resources */,
 				A56DA4531F70395D00D2B575 /* ResultView.xib in Resources */,
@@ -433,6 +437,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -440,6 +445,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -490,6 +496,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -497,6 +504,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
