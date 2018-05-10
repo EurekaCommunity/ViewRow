@@ -40,7 +40,7 @@ class GraphViewViewController: FormViewController {
                     let msPerSample = 3.90625
                     let intervalSamples = 200.0 /* ms */ / Double(msPerSample)
                     let baseLine = 51
-                    let series = ChartSeries(data.flatMap({ (v) in return Double(v) }))
+                    let series = ChartSeries(data.compactMap({ (v) in return Double(v) }))
                     let min = floor(data.min()!)
                     let max = ceil(data.max()!)
                     
