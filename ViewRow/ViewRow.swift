@@ -54,7 +54,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
         //  Provide a default row height calculation based on the height of the assigned view.
         height = {
             if self.titleLabel!.text == nil || self.titleLabel!.text == "" {
-                return ceil(self.view?.frame.height ?? 0 + self.viewTopMargin + self.viewBottomMargin)
+                return ceil((self.view?.frame.height ?? 0) + self.viewTopMargin + self.viewBottomMargin)
             }
             else {
                 let titleHeight = ceil(self.titleLabel!.sizeThatFits(CGSize(width: self.contentView.frame.width - self.titleLeftMargin - self.titleRightMargin, height: 9999.0)).height)
