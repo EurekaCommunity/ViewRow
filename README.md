@@ -2,7 +2,7 @@ By [Mark Alldritt](http://markalldritt.com).
 
 ## Introduction
 
-ViewRow is a [Eureka](https://github.com/xmartlabs/Eureka) row that allows you to display any UIView (or UIView sunclass) within a Eureka row.  Views can be created in code or loaded from nib files.  ViewRow handles all interactions with Eureka allowing you to focus on developing your UIView subclass or Nib file.
+ViewRow is a [Eureka](https://github.com/xmartlabs/Eureka) row that allows you to display any UIView (or UIView subclass) within a Eureka row.  Views can be created in code or loaded from nib files.  ViewRow handles all interactions with Eureka allowing you to focus on developing your UIView subclass or Nib file.
 
 ![Demo](Screenshots/ViewRow.gif)
 
