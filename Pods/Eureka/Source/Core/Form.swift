@@ -32,7 +32,7 @@ public protocol FormDelegate : class {
     func rowsHaveBeenAdded(_ rows: [BaseRow], at: [IndexPath])
     func rowsHaveBeenRemoved(_ rows: [BaseRow], at: [IndexPath])
     func rowsHaveBeenReplaced(oldRows: [BaseRow], newRows: [BaseRow], at: [IndexPath])
-    func valueHasBeenChanged(for: BaseRow, oldValue: Any?, newValue: Any?)
+    func valueHasBeenChanged(for row: BaseRow, oldValue: Any?, newValue: Any?)
 }
 
 // MARK: Form
@@ -241,8 +241,8 @@ extension Form : RangeReplaceableCollection {
     private func indexForInsertion(at index: Int) -> Int {
         guard index != 0 else { return 0 }
 
-        let row = kvoWrapper.sections[index-1]
-        if let i = kvoWrapper._allSections.index(of: row as! Section) {
+        let section = kvoWrapper.sections[index-1]
+        if let i = kvoWrapper._allSections.index(of: section as! Section) {
             return i + 1
         }
         return kvoWrapper._allSections.count
@@ -263,7 +263,7 @@ extension Form {
         init(form: Form) {
             self.form = form
             super.init()
-            addObserver(self, forKeyPath: "_sections", options: NSKeyValueObservingOptions.new.union(.old), context:nil)
+            addObserver(self, forKeyPath: "_sections", options: [.new, .old], context:nil)
         }
 
         deinit {
@@ -354,7 +354,7 @@ extension Form {
     }
 	
 	var containsMultivaluedSection: Bool {
-		return kvoWrapper.sections.contains { $0 is MultivaluedSection }
+		return kvoWrapper._allSections.contains { $0 is MultivaluedSection }
 	}
 
     func getValues(for rows: [BaseRow]) -> [String: Any?] {
@@ -386,4 +386,10 @@ extension Form {
             return res
         }
     }
+    
+    // Reset rows validation
+    public func cleanValidationErrors(){
+        allRows.forEach { $0.cleanValidationErrors() }
+    }
 }
+
