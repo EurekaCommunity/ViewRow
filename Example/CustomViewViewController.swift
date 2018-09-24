@@ -24,8 +24,8 @@ class CustomViewViewController: FormViewController {
             
                 <<< SliderRow("height") { (row) in
                     row.title = "Height"
-                    row.minimumValue = 150.0
-                    row.maximumValue = 500.0
+                    row.cell.slider.minimumValue = 150.0
+                    row.cell.slider.maximumValue = 500.0
                     row.value = self.initialHeight
                 }
                 .onChange { (row) in
