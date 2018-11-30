@@ -52,7 +52,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
         contentView.addSubview(titleLabel!)
         
         //  Provide a default row height calculation based on the height of the assigned view.
-        height = {
+        height = { [unowned self] in
             if self.titleLabel!.text == nil || self.titleLabel!.text == "" {
                 return ceil((self.view?.frame.height ?? 0) + self.viewTopMargin + self.viewBottomMargin)
             }
