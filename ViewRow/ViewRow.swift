@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 
 
-public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
+public class ViewCell<ViewType : UIView, ValueType : Equatable> : Cell<ValueType>, CellType {
     
     public var view : ViewType?
     
@@ -52,7 +52,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
         contentView.addSubview(titleLabel!)
         
         //  Provide a default row height calculation based on the height of the assigned view.
-        height = { [unowned self] in
+        height = {
             if self.titleLabel!.text == nil || self.titleLabel!.text == "" {
                 return ceil((self.view?.frame.height ?? 0) + self.viewTopMargin + self.viewBottomMargin)
             }
@@ -111,7 +111,7 @@ public class ViewCell<ViewType : UIView> : Cell<String>, CellType {
 
 // MARK: ViewRow
 
-open class _ViewRow<ViewType : UIView>: Row<ViewCell<ViewType> > {
+open class _ViewRow<ViewType : UIView, ValueType : Equatable>: Row<ViewCell<ViewType, ValueType> > {
     
     override open func updateCell() {
         //  NOTE: super.updateCell() deliberatly not called.
@@ -132,8 +132,22 @@ open class _ViewRow<ViewType : UIView>: Row<ViewCell<ViewType> > {
     }
 }
 
-public final class ViewRow<ViewType : UIView>: _ViewRow<ViewType>, RowType {
+// ViewRow class with value type specialization
+public final class ViewRowNew<ViewType : UIView, ValueType : Equatable>: _ViewRow<ViewType, ValueType>, RowType {
 
+    public var view: ViewType? { // provide a convience accessor for the view
+        return cell.view
+    }
+    
+    required public init(tag: String?) {
+        super.init(tag: tag)
+    }
+
+}
+
+// legacy ViewRow class without value type specialization
+public final class ViewRow<ViewType : UIView> : _ViewRow<ViewType, String>, RowType {
+    
     public var view: ViewType? { // provide a convience accessor for the view
         return cell.view
     }
