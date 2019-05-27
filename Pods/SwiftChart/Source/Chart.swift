@@ -65,6 +65,18 @@ open class Chart: UIControl {
     Series to display in the chart.
     */
     open var series: [ChartSeries] = [] {
+      didSet {
+        DispatchQueue.main.async {
+          self.setNeedsDisplay()
+        }
+      }
+    }
+
+	/**
+	Chart title
+	*/
+    @IBInspectable
+    open var title = "" {
         didSet {
             setNeedsDisplay()
         }
@@ -188,6 +200,19 @@ open class Chart: UIControl {
     */
     open var maxY: Double?
 
+	/**
+	Should the chart respond to touches and display a highlight line
+	*/
+    @IBInspectable
+	open var showHighlightLine = true {
+        didSet {
+            if let shapeLayer = highlightShapeLayer {
+                shapeLayer.removeFromSuperlayer()
+                highlightShapeLayer = nil
+            }
+        }
+    }
+    
     /**
     Color for the highlight line.
     */
@@ -346,6 +371,43 @@ open class Chart: UIControl {
                     drawArea(scaledXValues, yValues: scaledYValues, seriesIndex: index)
                 }
             })
+            
+            for i in 0..<series.callouts.count {
+                let callout = series.callouts[i]
+                let scaledXValue = scaleValuesOnXAxis([series.data[callout.x].x])[0]
+                let scaledYValue = scaleValuesOnYAxis([series.data[callout.x].y])[0]
+                
+                drawCallout(x: scaledXValue, y: scaledYValue, seriesIndex: index, callout: callout)
+                
+                if callout.title != nil && callout.title! != "" {
+                    // Add label
+                    let label = UILabel()
+                    label.font = labelFont
+                    label.text = callout.title
+                    label.textColor = callout.titleColor ?? (callout.strokeColor ?? labelColor)
+                    label.numberOfLines = 3
+                    
+                    // Set label size
+                    label.sizeToFit()
+                    // Center label vertically
+                    
+                    switch callout.kind {
+                    case .circle, .square:
+                        label.frame.origin.x = CGFloat(scaledXValue) + 8.0
+                        label.frame.origin.y = CGFloat(scaledYValue) - label.frame.height / 2.0
+                        
+                    case .line, .lineTop:
+                        label.frame.origin.x = CGFloat(scaledXValue) + (callout.lineWidth ?? (series.lineWidth ?? lineWidth)) + 4.0
+                        label.frame.origin.y = topInset
+                        
+                    case .lineBottom:
+                        label.frame.origin.x = CGFloat(scaledXValue) + (callout.lineWidth ?? (series.lineWidth ?? lineWidth)) + 4.0
+                        label.frame.origin.y = topInset + drawingHeight - label.frame.height
+                    }
+                    
+                    self.addSubview(label)
+                }
+            }
         }
 
         drawAxes()
@@ -356,7 +418,9 @@ open class Chart: UIControl {
         if showYLabelsAndGrid && (yLabels != nil || series.count > 0) {
             drawLabelsAndGridOnYAxis()
         }
-
+        if title != "" {
+            drawTitle()
+        }
     }
 
     // MARK: - Scaling
@@ -479,8 +543,8 @@ open class Chart: UIControl {
             lineLayer.strokeColor = series[seriesIndex].colors.below.cgColor
         }
         lineLayer.fillColor = nil
-        lineLayer.lineWidth = lineWidth
-        lineLayer.lineJoin = kCALineJoinBevel
+        lineLayer.lineWidth = series[seriesIndex].lineWidth ?? lineWidth
+        lineLayer.lineJoin = .bevel
 
         self.layer.addSublayer(lineLayer)
 
@@ -514,6 +578,34 @@ open class Chart: UIControl {
         layerStore.append(areaLayer)
     }
 
+    fileprivate func drawCallout(x: Double, y: Double, seriesIndex: Int, callout: ChartCallout) {
+        let isAboveZeroLine = y <= self.scaleValueOnYAxis(series[seriesIndex].colors.zeroLevel)
+        var area: CGPath
+            
+        switch callout.kind {
+        case .circle: area = CGPath(ellipseIn: CGRect(x: CGFloat(x - 4.0), y: CGFloat(y - 4.0), width: 8.0, height: 8.0), transform: nil)
+        case .square: area = CGPath(rect: CGRect(x: CGFloat(x - 4.0), y: CGFloat(y - 4.0), width: 8.0, height: 8.0), transform: nil)
+        case .line, .lineTop, .lineBottom: area = CGPath(rect: CGRect(x: CGFloat(x), y: topInset, width: 0.5, height: drawingHeight), transform: nil)
+        }
+        
+        let areaLayer = CAShapeLayer()
+        areaLayer.frame = self.bounds
+        areaLayer.path = area
+        areaLayer.strokeColor = nil
+        if isAboveZeroLine {
+            areaLayer.strokeColor = (callout.strokeColor ?? series[seriesIndex].colors.above).cgColor
+            areaLayer.fillColor = (callout.fillColor ?? series[seriesIndex].colors.above.withAlphaComponent(areaAlphaComponent / 2.0)).cgColor
+        } else {
+            areaLayer.strokeColor = (callout.strokeColor ?? series[seriesIndex].colors.below).cgColor
+            areaLayer.fillColor = (callout.fillColor ?? series[seriesIndex].colors.below.withAlphaComponent(areaAlphaComponent / 2.0)).cgColor
+        }
+        areaLayer.lineWidth = callout.lineWidth ?? (series[seriesIndex].lineWidth ?? lineWidth)
+        
+        self.layer.addSublayer(areaLayer)
+        
+        layerStore.append(areaLayer)
+    }
+    
     fileprivate func drawAxes() {
         let context = UIGraphicsGetCurrentContext()!
         context.setStrokeColor(axesColor.cgColor)
@@ -669,12 +761,42 @@ open class Chart: UIControl {
 
             // Labels should be placed above the horizontal grid
             label.frame.origin.y -= label.frame.height
+            // ...but within the chart's frame...
+            if label.frame.origin.y < 0.0 {
+                label.frame.origin.y = 0.0
+            }
 
             self.addSubview(label)
         }
         UIGraphicsEndImageContext()
     }
 
+    fileprivate func drawTitle() {
+        let padding: CGFloat = 5
+        let label = UILabel()
+        label.font = labelFont
+        label.text = title
+        label.textColor = labelColor
+        label.sizeToFit()
+        
+        if yLabelsOnRightSide {
+            label.frame.origin.x = padding
+        }
+        else {
+            label.frame.origin.x = drawingWidth
+            label.frame.origin.x -= label.frame.width + padding
+        }
+        
+        // Labels should be placed above the horizontal grid
+        label.frame.origin.y = topInset - label.frame.size.height
+        // ...but within the chart's frame...
+        if label.frame.origin.y < 0.0 {
+            label.frame.origin.y = 0.0
+        }
+        
+        addSubview(label)
+    }
+    
     // MARK: - Touch events
 
     fileprivate func drawHighlightLineFromLeftPosition(_ left: CGFloat) {
@@ -705,39 +827,42 @@ open class Chart: UIControl {
     }
 
     func handleTouchEvents(_ touches: Set<UITouch>, event: UIEvent!) {
-        let point = touches.first!
-        let left = point.location(in: self).x
-        let x = valueFromPointAtX(left)
+        if showHighlightLine {
+            let point = touches.first!
+            let left = point.location(in: self).x
+            let x = valueFromPointAtX(left)
 
-        if left < 0 || left > (drawingWidth as CGFloat) {
-            // Remove highlight line at the end of the touch event
-            if let shapeLayer = highlightShapeLayer {
-                shapeLayer.path = nil
+            if left < 0 || left > (drawingWidth as CGFloat) {
+                // Remove highlight line at the end of the touch event
+                if let shapeLayer = highlightShapeLayer {
+                    shapeLayer.path = nil
+                }
+                delegate?.didFinishTouchingChart(self)
+                return
             }
-            delegate?.didFinishTouchingChart(self)
-            return
-        }
 
-        drawHighlightLineFromLeftPosition(left)
+            drawHighlightLineFromLeftPosition(left)
 
-        if delegate == nil {
-            return
-        }
-
-        var indexes: [Int?] = []
-
-        for series in self.series {
-            var index: Int? = nil
-            let xValues = series.data.map({ (point: ChartPoint) -> Double in
-                return point.x })
-            let closest = Chart.findClosestInValues(xValues, forValue: x)
-            if closest.lowestIndex != nil && closest.highestIndex != nil {
-                // Consider valid only values on the right
-                index = closest.lowestIndex
+            if delegate == nil {
+                return
             }
-            indexes.append(index)
+
+            var indexes: [Int?] = []
+
+            for series in self.series {
+                var index: Int? = nil
+                let xValues = series.data.map({ (point: ChartPoint) -> Double in
+                    return point.x })
+                let closest = Chart.findClosestInValues(xValues, forValue: x)
+                if closest.lowestIndex != nil && closest.highestIndex != nil {
+                    // Consider valid only values on the right
+                    index = closest.lowestIndex
+                }
+                indexes.append(index)
+            }
+
+            delegate!.didTouchChart(self, indexes: indexes, x: x, left: left)
         }
-        delegate!.didTouchChart(self, indexes: indexes, x: x, left: left)
     }
 
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
