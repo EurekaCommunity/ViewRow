@@ -132,8 +132,9 @@ open class _ViewRow<ViewType : UIView, ValueType : Equatable>: Row<ViewCell<View
     }
 }
 
-// ViewRow class with value type specialization
-public final class ViewRowNew<ViewType : UIView, ValueType : Equatable>: _ViewRow<ViewType, ValueType>, RowType {
+// ViewRow class with value type specialization.  When/if Swift allows default values for generics this can be folded
+// into the ViewRow class.
+public final class ViewRowGeneric<ViewType : UIView, ValueType : Equatable>: _ViewRow<ViewType, ValueType>, RowType {
 
     public var view: ViewType? { // provide a convience accessor for the view
         return cell.view
