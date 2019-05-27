@@ -81,7 +81,7 @@ If you use **ViewRow** in your app I would love to hear about it! Drop me a line
 
 ## Installation
 
-1. Add `pod 'ViewRow', :git => 'https://github.com/EurekaCommunity/ViewRow'` to your Podfile
+1. Add `pod 'ViewRow'` to your Podfile
 2. Run `$ pod install`
 
 
