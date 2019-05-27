@@ -10,7 +10,40 @@ import UIKit
 /**
 The `ChartSeries` class create a chart series and configure its appearance and behavior.
 */
+
+public enum ChartCalloutKind {
+    case circle,
+         square,
+         line, // line with title on top
+         lineTop, // line with title on top
+         lineBottom // line with title on bottom
+}
+
+public struct ChartCallout {
+    private (set) var x: Int
+    private (set) var kind: ChartCalloutKind
+    private (set) var strokeColor: UIColor?
+    private (set) var fillColor: UIColor?
+    private (set) var lineWidth: CGFloat?
+    private (set) var title: String?
+    private (set) var titleColor: UIColor?
+
+    public init(_ x: Int, kind: ChartCalloutKind = .circle, strokeColor: UIColor? = nil, fillColor: UIColor? = nil, lineWidth: CGFloat? = nil, title: String? = nil, titleColor: UIColor? = nil) {
+        self.x = x
+        self.kind = kind
+        self.strokeColor = strokeColor
+        self.fillColor = fillColor
+        self.lineWidth = lineWidth
+        self.title = title
+        self.titleColor = titleColor
+    }
+}
+
 open class ChartSeries {
+    // MALL
+    open var callouts: [ChartCallout] = []
+    open var lineWidth : CGFloat?
+
     /**
     The data used for the chart series.
     */
