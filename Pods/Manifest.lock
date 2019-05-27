@@ -1,9 +1,9 @@
 PODS:
-  - Eureka (4.3.0)
+  - Eureka (5.0.0)
   - SwiftChart (1.0.1)
 
 DEPENDENCIES:
-  - Eureka (>= 4.3.0)
+  - Eureka (>= 5.0)
   - SwiftChart
 
 SPEC REPOS:
@@ -12,9 +12,9 @@ SPEC REPOS:
     - SwiftChart
 
 SPEC CHECKSUMS:
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
   SwiftChart: ba767a678d568a5ee22d419e146a0582865e1aff
 
-PODFILE CHECKSUM: 43b493c25d9601beeda9493747da688228fd9083
+PODFILE CHECKSUM: 62766f8155cdec595a7472a11217881f3017accb
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.0
