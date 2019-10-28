@@ -28,7 +28,7 @@ class GraphViewViewController: FormViewController {
                 }
 
                 <<< ViewRow<Chart>("graph") { (row) in
-                    row.title = "GraphViewx"
+                    row.title = "Graph View"
                 }
                 .cellSetup { (cell, row) in
                     cell.view = Chart(frame: CGRect(x: 0, y: 0, width: 100, height: UIDevice.current.userInterfaceIdiom == .pad ? 300 : 210))
