@@ -31,7 +31,6 @@ public class ViewCell<ViewType : UIView, ValueType : Equatable> : Cell<ValueType
     required public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = UIColor.white
     }
     
     required public init?(coder aDecoder: NSCoder) {
