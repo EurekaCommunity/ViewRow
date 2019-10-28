@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ViewRow'
-  s.version = '0.7'
+  s.version = '0.8'
   s.license = 'MIT'
   s.summary = 'A UIView hosting row for use with the Eureka form library'
   s.homepage = 'https://github.com/EurekaCommunity/ViewRow'
