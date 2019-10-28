@@ -122,7 +122,7 @@
 		31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		345E690C78FF45BCD1711F2FFB6EDD95 /* StepperRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StepperRow.swift; path = Source/Rows/StepperRow.swift; sourceTree = "<group>"; };
 		35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		3E95A08683F602151269503B6BB79347 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E95A08683F602151269503B6BB79347 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F03A8F029477F917A478AB65A50CE30 /* Eureka-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Eureka-prefix.pch"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		441854E35F81731E63E53DC7E4EEAD9D /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		61290C337BC1B9FC6263A476BFF75309 /* RuleRegExp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleRegExp.swift; path = Source/Validations/RuleRegExp.swift; sourceTree = "<group>"; };
 		62EDF465B295CA9C7B36088034A9F36E /* ChartColors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartColors.swift; path = Source/ChartColors.swift; sourceTree = "<group>"; };
 		64E3709C84465693A3070F600EF890A6 /* GenericMultipleSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericMultipleSelectorRow.swift; path = Source/Rows/Common/GenericMultipleSelectorRow.swift; sourceTree = "<group>"; };
-		66707E77F0EDA6CCC99A4CC156991A93 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftChart.framework; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66707E77F0EDA6CCC99A4CC156991A93 /* SwiftChart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftChart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		690168305E66F335D1B659AA17825488 /* ListCheckRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListCheckRow.swift; path = Source/Rows/SelectableRows/ListCheckRow.swift; sourceTree = "<group>"; };
 		6B5EEFE9C8670CB78CD5299A585C7CA1 /* DatePickerRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DatePickerRow.swift; path = Source/Rows/DatePickerRow.swift; sourceTree = "<group>"; };
 		6C314D7F126F7EF16D906EA503DBEFE8 /* RowProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RowProtocols.swift; path = Source/Core/RowProtocols.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		90C4318CC22C1A98663F62FA03219AE4 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Source/Rows/Common/Protocols.swift; sourceTree = "<group>"; };
 		927D917DE4EDE1874759ACF2A3AFBCA3 /* AlertOptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertOptionsRow.swift; path = Source/Rows/Common/AlertOptionsRow.swift; sourceTree = "<group>"; };
 		9606146B80D0CE2FF62502AA56C22DBC /* FieldsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FieldsRow.swift; path = Source/Rows/FieldsRow.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DEB4311F223DA9731EBAB534E8FF9FB /* PresenterRowType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PresenterRowType.swift; path = Source/Core/PresenterRowType.swift; sourceTree = "<group>"; };
 		A037F2C28452533D79826D7F4321CE4B /* OptionsRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionsRow.swift; path = Source/Rows/Common/OptionsRow.swift; sourceTree = "<group>"; };
 		A29815549D00A2CF5996AE5B63D808DE /* Form.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Form.swift; path = Source/Core/Form.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		BED4DF7E9A12310E587AD1B550C8417E /* SegmentedRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SegmentedRow.swift; path = Source/Rows/SegmentedRow.swift; sourceTree = "<group>"; };
 		C1BDD8BA0B0C69493C37070E8BCD7AFA /* PopoverSelectorRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopoverSelectorRow.swift; path = Source/Rows/PopoverSelectorRow.swift; sourceTree = "<group>"; };
 		C358B2A734D96E1791139EE9D725437A /* RuleURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuleURL.swift; path = Source/Validations/RuleURL.swift; sourceTree = "<group>"; };
-		C363BC98C76431D768AFB24B43D39852 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Eureka.framework; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C363BC98C76431D768AFB24B43D39852 /* Eureka.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Eureka.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0F9190CED7CA70C6894DE5EFCDE9B0 /* AlertRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertRow.swift; path = Source/Rows/AlertRow.swift; sourceTree = "<group>"; };
 		D25EC36D5133EFE9E4A9F943D796F195 /* SwiftChart-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftChart-dummy.m"; sourceTree = "<group>"; };
 		D3C89106212BBC81E1A5CC86260098D8 /* ChartSeries.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartSeries.swift; path = Source/ChartSeries.swift; sourceTree = "<group>"; };
@@ -277,7 +277,6 @@
 				D3C89106212BBC81E1A5CC86260098D8 /* ChartSeries.swift */,
 				F5CF77CB1952ECC29374471728D3B1D5 /* Support Files */,
 			);
-			name = SwiftChart;
 			path = SwiftChart;
 			sourceTree = "<group>";
 		};
@@ -353,7 +352,6 @@
 				B096CCF9A205856562DC988AE4D420CF /* Resources */,
 				110936C9ABFEA6407FC1DF2905D4C0AD /* Support Files */,
 			);
-			name = Eureka;
 			path = Eureka;
 			sourceTree = "<group>";
 		};
@@ -534,6 +532,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 1F5C20FEF25538AF261F6337F745BAA6 /* Products */;
@@ -933,8 +932,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
