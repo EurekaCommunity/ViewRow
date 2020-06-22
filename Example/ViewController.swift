@@ -16,6 +16,13 @@ class ViewController: FormViewController {
     let initialHeight = Float(200.0)
     
     override func viewDidLoad() {
+        //  Present the form in a insetGrouped styled table
+        if #available(iOS 13.0, *) {
+            tableView = UITableView(frame: view.bounds, style: .insetGrouped)
+            tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            tableView.cellLayoutMarginsFollowReadableWidth = true
+        }
+
         super.viewDidLoad()
 
         form
