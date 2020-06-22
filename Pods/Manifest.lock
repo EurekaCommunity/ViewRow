@@ -1,5 +1,5 @@
 PODS:
-  - Eureka (5.0.0)
+  - Eureka (5.2.1)
   - SwiftChart (1.0.1)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - "SwiftChart (from `git@github.com:alldritt/SwiftChart`)"
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Eureka
 
 EXTERNAL SOURCES:
@@ -20,9 +20,9 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:alldritt/SwiftChart"
 
 SPEC CHECKSUMS:
-  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  Eureka: c883105488e05bc65539f583246ecf9657cabbfe
   SwiftChart: dfa58fed4299f6cf242ad4a2e02609496bf66036
 
 PODFILE CHECKSUM: c2bb1aa99a913f9c6cfa21403be0686948a9cec7
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.8.4
