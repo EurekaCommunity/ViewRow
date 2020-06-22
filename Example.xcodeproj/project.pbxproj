@@ -38,7 +38,7 @@
 		A55B940A1F86A3A30061E9FB /* ImageViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewViewController.swift; sourceTree = "<group>"; };
 		A55B940B1F86A3A40061E9FB /* CustomViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewViewController.swift; sourceTree = "<group>"; };
 		A55B940C1F86A3A40061E9FB /* ViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
-		A56DA4391F70380A00D2B575 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A56DA4391F70380A00D2B575 /* EurekaViewRow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EurekaViewRow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A56DA43C1F70380A00D2B575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A56DA43E1F70380A00D2B575 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A56DA4411F70380A00D2B575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		A56DA43A1F70380A00D2B575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A56DA4391F70380A00D2B575 /* Example.app */,
+				A56DA4391F70380A00D2B575 /* EurekaViewRow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,7 +168,7 @@
 			);
 			name = Example;
 			productName = CustomViewRow;
-			productReference = A56DA4391F70380A00D2B575 /* Example.app */;
+			productReference = A56DA4391F70380A00D2B575 /* EurekaViewRow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,7 +183,6 @@
 				TargetAttributes = {
 					A56DA4381F70380A00D2B575 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Z7S6X96M3X;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -421,11 +420,14 @@
 			baseConfigurationReference = 531DD29652A125059B1FA9B1 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CustomViewRow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EurekaViewRow;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -434,11 +436,14 @@
 			baseConfigurationReference = D2B08C0FC2C07BCFEF392D40 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7S6X96M3X;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.latenightsw.CustomViewRow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = EurekaViewRow;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
