@@ -17,6 +17,7 @@ let package = Package(
         .target(
             name: "ViewRow",
             dependencies: [],
-            path: "ViewRow"),
+            path: "ViewRow",
+            exclude: ["Info.plist", "ViewRow.h"]),
     ]
 )
