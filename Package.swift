@@ -10,6 +10,9 @@ let package = Package(
             name: "ViewRow",
             targets: ["ViewRow"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/xmartlabs/Eureka.git", from: "5.3.2"),
+    ],
     targets: [
         .target(
             name: "ViewRow",
