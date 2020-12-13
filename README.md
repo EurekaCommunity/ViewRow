@@ -83,20 +83,33 @@ If you use **ViewRow** in your app I would love to hear about it! Drop me a line
 
 ## Installation
 
+### CocoaPods
+
 1. Add `pod 'ViewRow'` to your Podfile
 2. Quit any XCode instance containing a ViewRow project
 3. Run `$ pod install`
 4. Re-open XCode
 5. For any source file that makes use of ViewRow, be sure to add:
 
-	
-```
 ...
 import Eureka
 import ViewRow
 ...
+
+### Swift Package Manager
+
+Add the following to your project's dependancies:
+
+```
+dependencies: [ .package(url: "https://github.com/EurekaCommunity/ViewRow.git", from: "0.9") ]
 ```	
 
+For any source file that makes use of ViewRow, be sure to add:
+
+...
+import Eureka
+import ViewRow
+...
 
 ## ViewRow Customization
 
