@@ -92,8 +92,10 @@ If you use **ViewRow** in your app I would love to hear about it! Drop me a line
 5. For any source file that makes use of ViewRow, be sure to add:
 
 ...
+```swift
 import Eureka
 import ViewRow
+```
 ...
 
 ### Swift Package Manager
@@ -107,8 +109,10 @@ dependencies: [ .package(url: "https://github.com/EurekaCommunity/ViewRow.git", 
 For any source file that makes use of ViewRow, be sure to add:
 
 ...
+```swift
 import Eureka
 import ViewRow
+```
 ...
 
 ## ViewRow Customization
