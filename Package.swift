@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "ViewRow",
-            dependencies: [],
+            dependencies: ["Eureka"],
             path: "ViewRow",
             exclude: ["Info.plist", "ViewRow.h"]),
     ]
